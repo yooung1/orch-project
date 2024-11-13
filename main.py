@@ -42,47 +42,6 @@ class Monitoring(DatabaseConnection):
                 await run_queue_scripts(self.list_of_queue_scripts)
         finally:
             self.process_is_running = False
-        # """Função assíncrona para processar os itens da fila."""
-        # print("run_queue_scripts")
-        # if not self.process_is_running and len(self.list_of_queue_scripts) > 0:  # Verifica se não há outro processo rodando e se há itens na fila
-        #     self.process_is_running = True
-        #     id = self.list_of_queue_scripts.pop(0)  # Pega o primeiro ID da fila
-        #     try:
-        #         await self.Bot(id)  # Chama o método para processar o script com o ID
-        #         print(f"{id} Finalizado")
-        #     except Exception as e:
-        #         print(f"Erro ao rodar o script com ID {id}: {e}")
-        #     finally:
-        #         self.process_is_running = False
-
-    # AQUI VAI ESTAR A LOGICA PARA RODAR O SCRIPT
-    # PRECISO ADICIONAR ALGUNS METODOS A MAIS 
-    # ONDE ELE VAI ACHAR O SCRIPT Q PRECISAR RODAR?
-    # async def Bot(self, id):
-    #     print("Bot")
-    #     """Simula o processamento de um bot, rodando em segundo plano"""
-    #     try:
-    #         print(f"BOT {id} EXECUTADO")
-            
-    #         # Inicia o subprocess de forma assíncrona
-    #         process = await asyncio.create_subprocess_exec(
-    #             "python",
-    #             r"C:\Users\Young1\Desktop\Python\BOTS\meu_script.py",
-    #             stdout=asyncio.subprocess.PIPE,
-    #             stderr=asyncio.subprocess.PIPE
-    #         )
-
-    #         # Aguarda o processo terminar sem bloquear a execução
-    #         stdout, stderr = await process.communicate()
-
-    #         # Exibe a saída do subprocess
-    #         print(f"[STDOUT]\n{stdout.decode()}")
-    #         if stderr:
-    #             print(f"[STDERR]\n{stderr.decode()}")
-
-    #         print(f"BOT {id} FINALIZADO")
-    #     except Exception as e:
-    #         print(f"Erro: {e}")
     
     
     # Função principal para rodar a tarefa assíncrona periodicamente.
